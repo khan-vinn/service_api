@@ -7,6 +7,7 @@ import favicon from "serve-favicon";
 import timeout from "connect-timeout";
 import session from "express-session"
 import passport from "passport";
+import helmet from "helmet";
 
 export default function (app) {
     app.use(express.static("public"))
@@ -28,4 +29,5 @@ export default function (app) {
     }))
     app.use(passport.initialize());
     app.use(passport.session())
+    app.use(helmet())
 }

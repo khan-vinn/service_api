@@ -38,9 +38,8 @@ const UserSchema = Schema({
         minLength: 4,
         maxLength: 15,
         unique: true
-    }
-    ,
-    hashed_password: {
+    },
+    password: {
         type: Schema.Types.String,
         required: true
     },

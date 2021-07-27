@@ -15,6 +15,10 @@ const FileVisitsHistorySchema = Schema({
     os: {
         type: Schema.Types.String,
         required: true
+    },
+    gps_coordinate: {
+        type: Schema.Types.String,
+        required: true
     }
 })
 
