@@ -1,5 +1,6 @@
-import mongoose, { Schema } from "mongoose";
-import nanoId from "nanoid";
+import mongoose from "mongoose";
+import { nanoid } from "nanoid";
+const { Schema } = mongoose
 
 const LinkVisitHistoryChema = Schema({
     time: {
@@ -20,7 +21,7 @@ const LinkVisitHistoryChema = Schema({
 const LinkSchema = Schema({
     _id: {
         type: Schema.Types.String,
-        default: () => nanoId(9)
+        default: () => nanoid(9)
     },
     original_link: {
         type: Schema.Types.String,

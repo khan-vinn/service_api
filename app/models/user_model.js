@@ -1,5 +1,6 @@
-import mongoose, { Schema } from "mongoose";
-import nanoId from "nanoid";
+import mongoose from "mongoose";
+import { nanoid } from "nanoid";
+const { Schema } = mongoose
 
 const NameSchema = Schema({
     first: {
@@ -20,7 +21,7 @@ const UserSchema = Schema({
     _id: {
         type: Schema.Types.String,
         required: true,
-        default: () => nanoId(10)
+        default: () => nanoid(10)
     },
     name: {
         type: NameSchema,

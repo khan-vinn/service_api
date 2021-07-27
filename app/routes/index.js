@@ -1,11 +1,21 @@
-import authRouter from "./auth/index.js"
+import authRouter from "./auth/auth_router.js"
+import fileRouter from './file/file_router.js'
+import linkRouter from './link/link_router.js'
+import profile from "./profile/profile_router.js"
+
+function partialRoutes(app) {
+    authRouter(app)
+    fileRouter(app)
+    linkRouter(app)
+    profile(app)
+}
 
 export default function (app) {
     app.route("/").get((req, res, next) => {
         res.render("index")
     })
     
-    authRouter(app)
+    partialRoutes(app)
 
     app.use((req, res, next) => {
         res.status(401).type("txt").send("Not Found")

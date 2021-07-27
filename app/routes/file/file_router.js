@@ -8,6 +8,6 @@ export default function (app, myDataBase) {
         .post(upload.single("file"), (req, res, next) => { })
     app.route("/f/:id/about")
         .get((req, res, next) => { })
-    app.route("/f/:id")
+    app.route("/f/:id?")
         .get((req, res, next) => { })
 }
