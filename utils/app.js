@@ -5,6 +5,8 @@ import cors from "cors";
 import compression from "compression";
 import favicon from "serve-favicon";
 import timeout from "connect-timeout";
+import session from "express-session"
+import passport from "passport";
 
 // import multer from "multer";
 // const upload = multer({ dest: "uploads/" });
@@ -21,4 +23,12 @@ export default function (app) {
     app.use(cors());
     app.use(compression());
     app.use(timeout("2s"));
+    app.use(session({
+        secret: process.env.EXPRESS_SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+        cookie: { secure: false }
+    }))
+    app.use(passport.initialize());
+    app.use(passport.session())
 }
