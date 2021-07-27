@@ -8,9 +8,6 @@ import timeout from "connect-timeout";
 import session from "express-session"
 import passport from "passport";
 
-// import multer from "multer";
-// const upload = multer({ dest: "uploads/" });
-
 export default function (app) {
     app.use(express.static("public"))
     app.set("view engine", "pug")
