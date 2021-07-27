@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { nanoid } from "nanoid";
 const { Schema } = mongoose
 
-const LinkVisitHistoryChema = Schema({
+const LinkVisitsHistorySchema = Schema({
     time: {
         type: Schema.Types.Number,
         required: true,
@@ -41,7 +41,7 @@ const LinkSchema = Schema({
         type: Schema.Types.Number
     },
     link_visit_story: {
-        type: [LinkVisitHistoryChema]
+        type: [LinkVisitsHistorySchema]
     }
 })
 
