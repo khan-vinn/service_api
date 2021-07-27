@@ -6,9 +6,6 @@ import compression from "compression";
 import favicon from "serve-favicon";
 import timeout from "connect-timeout";
 
-// import multer from "multer";
-// const upload = multer({ dest: "uploads/" });
-
 export default function (app) {
     app.use(express.static("public"))
     app.set("view engine", "pug")
