@@ -5,6 +5,29 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     link(rel="shortcut icon", type="image/jpg", href="/public/favicon.ico")
+    link(rel="stylesheet", href="style.css")
     title Document
   body
-    h1 Hello world!
+    header= "Link-Shortener && File uploader"  
+    .form
+      form(action="/auth/login", method="post")
+        legend Login to coutinue
+        div
+          label(for="username") Username: 
+          input#username(type="text", name="username" required)
+        div
+          label(for="password") Password: 
+          input#password(type="password", name="password" required)
+        button(type="submit") Submit
+      form(action="/auth/register", method="post")
+        legend new User?
+        div
+          label(for="email") Email: 
+          input#email(type="text", name="email" required)
+        div
+          label(for="username") Username: 
+          input#username(type="text", name="username" required)
+        div
+          label(for="password") New password: 
+          input#password(type="password", name="password" required)
+        button(type="submit") Submit
