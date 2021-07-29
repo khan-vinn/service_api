@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        if showFileForm
+            .link
+                form(action="/f" method="post")
+                    div
+                        label(for="link") New file:
+                        input#link(type="file" name="link" required)
+                    div
+                        label(for="shortLink") Link for file:
+                        input#shortlink(type="text" name="shortLink")
+                    div
+                        button(type="submit") Sumbit
+        else if showFilePage
+            .content 
+                - var link= "/file/"+ fileLink + "/get"
+                a(href= link ) file {n} size {b} format 

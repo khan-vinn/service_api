@@ -1,3 +1,5 @@
 import mongoose from "mongoose"
 
-export default function () { }
+export default function () {
+    return mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+}

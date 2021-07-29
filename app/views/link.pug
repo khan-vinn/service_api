@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        if showLinkForm
+            .link
+                form(action="/l" method="post" enctype="multipart/form-data")
+                    div
+                        label(for="link") Link
+                        input#link(type="text" name="link" required)
+                    div
+                        label(for="shortLink") Short link:
+                        input#shortlink(type="text" name="shortLink")
+                    div
+                        button(type="submit") Sumbit
+        else if showLinkPage 
+            .content 
+                p You should redirect in to #{link}
