@@ -1,70 +1,70 @@
 body {
-  margin: 0 auto;
-  box-sizing: border-box;
-  font-size: 24px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.form_section {
-  #form-switch {
-    display: none;
-    &:checked {
-      & ~ #form_login_wrapper {
-        display: none;
-      }
-      & ~ #form_register_wrapper {
-        display: block;
-      }
-    }
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Verdana, sans-serif;
   }
-}
-
-#form_login_wrapper {
-  display: block;
-}
-
-#form_register_wrapper {
-  display: none;
-}
-
-.form-section {
-  min-width: 350px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(248, 248, 248);
-  .form_wrapper > * {
+  .form-section #form-switch {
+    display: none;
+  }
+  
+  #form_login_wrapper {
+    display: block;
+  } 
+  
+  #form_register_wrapper {
+    display: none;
+  }
+  
+  #form-switch:checked ~ #form_login_wrapper {
+    display: none;
+  }
+  
+  #form-switch:checked ~ #form_register_wrapper {
+    display: block;
+  }
+  
+  .form-section {
+    min-width: 350px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    min-width: 140px;
-    min-height: 350px;
-    border: 1px solid rgba(128, 128, 128, 0.421);
-    padding: 25px;
-    box-shadow: 5px 5px 5px 3px rgba(154, 148, 148, 0.187);
-    & label,
-    & input,
-    & div > * {
-      margin: 8px;
-      padding: 10px;
-    }
-    label {
-      &.action {
-        margin-top: 35px;
-        padding: 8px 15px;
-        border-bottom: 2px solid rgba(47, 151, 226, 0.807);
-        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) background-color 2s;
-        &:hover {
-          background-color: rgba(43, 133, 212, 0.807);
-          border: 1px solid rgba(224, 219, 219, 0.766);
+    background-color: rgb(248, 248, 248);
+    .form_wrapper > * {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      min-height: 350px;
+      border: 1px solid rgba(128, 128, 128, 0.421);
+      padding: 25px;
+      box-shadow: 5px 5px 5px 3px rgba(154, 148, 148, 0.187);
+      & label,
+      & input,
+      & div > * {
+        margin: 8px;
+        padding: 10px;
+      }
+      label {
+        &.action {
+          margin-top: 35px;
+          padding: 8px 15px;
+          border-bottom: 2px solid rgba(47, 151, 226, 0.807);
+          transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) background-color 2s;
+          &:hover {
+            background-color: rgba(43, 133, 212, 0.807);
+            border: 1px solid rgba(224, 219, 219, 0.766);
+          }
         }
       }
     }
   }
-}
+  .form_wrapper form>div label {
+      display: none;
+  }

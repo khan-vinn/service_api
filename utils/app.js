@@ -24,7 +24,7 @@ export default function (app) {
         }
     }))
     app.use(bodyParser.json())
-    app.use("/public",express.static("public"))
+    app.use("/",express.static("public"))
     app.use(favicon("./public/favicon.ico"))
     app.use(morgan("common"));
     // app.use(cors());
