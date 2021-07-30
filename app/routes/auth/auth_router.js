@@ -1,6 +1,6 @@
 export default function (app) {
     app.route("/auth/login")
-        .get((req, res) => { res.send("login") })
+        .get((req, res) => { res.render("auth") })
     app.route("/auth/logout")
         .get((req, res) => { res.send("logout") })
     app.route("/auth/register")
