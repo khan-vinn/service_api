@@ -13,5 +13,5 @@ expressRoutes(app)
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`Express app listen in port ${port}
-Go to http://localhost:3000 || http://127.0.0.1:3000/ \n \n`)
+Go to http://localhost:${port}/ || http://127.0.0.1:${port}/ \n \n`)
 })

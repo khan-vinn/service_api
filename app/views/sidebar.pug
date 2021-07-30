@@ -1,0 +1,63 @@
+link(rel="stylesheet" href="style.css")
+link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+.wrapper
+    .sidebar
+        .profile
+            img(src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg" alt="profile_picture")
+            h3 Aminka Po
+            p Designer 
+        ul 
+            li
+                a.active(href="#")
+                    span.icon 
+                        i.fas.fa-home
+                    span.item Home 
+            li
+                a(href="#")
+                    span.icon 
+                        i.fas.fa-desktop
+                    span.item My dashboard 
+            li
+                a(href="#")
+                    span.icon 
+                        i.fas.fa-user-friends
+                    span.item People 
+            li
+                a(href="#")
+                    span.icon 
+                        i.fas.fa-tachometer-alt
+                    span.item Performance  
+            li
+                a(href="#")
+                    span.icon 
+                        i.fas.fa-database
+                    span.item Development 
+            li
+                a(href="#")
+                    span.icon 
+                        i.fas.fa-chart-line
+                    span.item Reports 
+            li
+                a(href="#")
+                    span.icon 
+                        i.fas.fa-user-shield
+                    span.item Admin 
+            li
+                a(href="#")
+                    span.icon 
+                        i.fas.fa-cog
+                    span.item Settings 
+    .section
+        .top_navbar
+            .hamburger
+                a(href="#")
+                    i.fas.fa-bars
+            .logout
+                a(href="#")
+                    i.fas.fa-sign-out-alt
+
+script.
+    var hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("click", function () {
+        document.querySelector("body").classList.toggle("active");
+    })

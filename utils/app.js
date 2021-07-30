@@ -27,10 +27,10 @@ export default function (app) {
     app.use(express.static("public"))
     app.use(favicon("./public/favicon.ico"))
     app.use(morgan("common"));
-    app.use(cors());
-    app.use(compression());
-    app.use(timeout("2s"));
-    app.use(helmet())
+    // app.use(cors());
+    // app.use(compression());
+    // app.use(timeout("2s"));
+    // app.use(helmet())
     app.use(session({
         secret: process.env.EXPRESS_SESSION_SECRET,
         resave: true,
