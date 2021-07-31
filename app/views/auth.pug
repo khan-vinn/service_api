@@ -1,74 +1,74 @@
-head 
+extends layout.pug
+
+block append head
     script(src="/script.js")
     link(rel="stylesheet" href="/style2.css")
-body  
-    div
-        .form-section 
-            input#form-switch(type="checkbox")
-            .form_wrapper#form_login_wrapper 
-                form.login_form#login(action="#" onsubmit="return loginFormSubmit()")
-                    div
-                        input#username_login(type="username" name="username" placeholder="Username")
-                        label(for="username") Username
-                    div 
-                        input#password_login(type="password" name="password" placeholder="Password")
-                        label(for="password_login") Password
-                    input(type="submit" value="Submit")
-                    label.action(for="form-switch") Register -=>
-            .form_wrapper#form_register_wrapper
-                form.form_register#register(action="#" onsubmit="return registerFormSubmit()")
-                    div 
-                        input#username_reg(type="username" name="username" placeholder="Username")
-                        label(for="username_reg") Username
-                    div 
-                        input#email_reg(type="email" name="email" placeholder="Email")
-                        label(for="email_reg") Email
-                    div 
-                        input#password_reg(type="password" name="password" placeholder="Password")
-                        label(for="password_reg") Password
-                    div 
-                        input#password_confirm_reg(type="password" name="password" placeholder="Confirm password")
-                        label(for="password_confirm_reg") Confirm password
-                    input(type="submit" value="Submit")
-                    label.action(for="form-switch") <=- Or login
-
-
-        script. 
-            function loginFormSubmit() {
-                const userNameLoginFormValue = document.getElementById("username_login").value;
-                const userPasswordLoginFormValue = document.getElementById("password_login").value ;
-                if (!userNameLoginFormValue || !userPasswordLoginFormValue) { 
-                    new Toast({ message: "Username or password is incorrect",type:"error" }) 
-                    return false
-                };
-                if ((userNameLoginFormValue.length >= 5 && userNameLoginFormValue <= 20) || (userPasswordLoginFormValue.length >= 5 && userNameLoginFormValue.length <= 20)) {
-                    document.getElementById("login").submit()
-                        return true 
-                };
-                new Toast({message:"username and password length would be more then 5", type:"error"});
+block content
+    .form-section 
+        input#form-switch(type="checkbox")
+        .form_wrapper#form_login_wrapper 
+            form.login_form#login(action="#" onsubmit="return loginFormSubmit()")
+                div
+                    input#username_login(type="username" name="username" placeholder="Username")
+                    label(for="username") Username
+                div 
+                    input#password_login(type="password" name="password" placeholder="Password")
+                    label(for="password_login") Password
+                input(type="submit" value="Submit")
+                label.action(for="form-switch") Register -=>
+        .form_wrapper#form_register_wrapper
+            form.form_register#register(action="#" onsubmit="return registerFormSubmit()")
+                div 
+                    input#username_reg(type="username" name="username" placeholder="Username")
+                    label(for="username_reg") Username
+                div 
+                    input#email_reg(type="email" name="email" placeholder="Email")
+                    label(for="email_reg") Email
+                div 
+                    input#password_reg(type="password" name="password" placeholder="Password")
+                    label(for="password_reg") Password
+                div 
+                    input#password_confirm_reg(type="password" name="password" placeholder="Confirm password")
+                    label(for="password_confirm_reg") Confirm password
+                input(type="submit" value="Submit")
+                label.action(for="form-switch") <=- Or login
+block append script 
+    script. 
+        function loginFormSubmit() {
+            const userNameLoginFormValue = document.getElementById("username_login").value;
+            const userPasswordLoginFormValue = document.getElementById("password_login").value ;
+            if (!userNameLoginFormValue || !userPasswordLoginFormValue) { 
+                new Toast({ message: "Username or password is incorrect",type:"error" }) 
+                return false
+            };
+            if ((userNameLoginFormValue.length >= 5 && userNameLoginFormValue <= 20) || (userPasswordLoginFormValue.length >= 5 && userNameLoginFormValue.length <= 20)) {
+                document.getElementById("login").submit()
+                    return true 
+            };
+            new Toast({message:"username and password length would be more then 5", type:"error"});
+            return false
+        }
+        function registerFormSubmit() {
+            const userNameRegister = document.getElementById("username_reg").value
+            const userPasswordRegister = document.getElementById("password_confirm_reg").value
+            const userPasswordConfirm = document.getElementById("password_reg").value
+            const userEmailRegister = document.getElementById("email_reg").value
+            if(userNameRegister.length<=6){
+                new Toast({message:"username length shoulde be longer then 6"})
                 return false
             }
-            function registerFormSubmit() {
-                const userNameRegister = document.getElementById("username_reg").value
-                const userPasswordRegister = document.getElementById("password_confirm_reg").value
-                const userPasswordConfirm = document.getElementById("password_reg").value
-                const userEmailRegister = document.getElementById("email_reg").value
-                if(userNameRegister.length<=6){
-                    new Toast({message:"username length shoulde be longer then 6"})
-                    return false
-                }
-                if(userPasswordRegister.length <= 6){
-                    new Toast({message:"password length should more then 6"})
-                    return false
-                }
-                if(!(userPasswordConfirm===userPasswordRegister)){
-                    new Toast({message:"confirm password should be equal to main password"})
-                    return false
-                }
-                const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if(!re.test(userEmailRegister)){
-                    new Toast({message:"Email is invalid"})
-                    return false
-                }
-                return true
-            } 
+            if(userPasswordRegister.length <= 6){
+                new Toast({message:"password length should more then 6"})
+                return false
+            }
+            if(!(userPasswordConfirm===userPasswordRegister)){
+                new Toast({message:"confirm password should be equal to main password"})
+                return false
+            }
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!re.test(userEmailRegister)){
+                new Toast({message:"Email is invalid"})
+                return false
+            }
+            return true
+        } 

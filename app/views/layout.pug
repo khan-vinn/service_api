@@ -1,0 +1,19 @@
+html
+    head 
+        block head
+            link(rel="stylesheet" href="/style.css")
+            link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+            title Title
+    body
+        .wrapper
+            .sidebar
+                include ./includes/left-bar.pug
+            .section
+                include ./includes/top-bar.pug
+                block content
+        block script
+            script.
+                var hamburger = document.querySelector(".hamburger");
+                hamburger.addEventListener("click", function () {
+                    document.querySelector("body").classList.toggle("active");
+                })
