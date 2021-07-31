@@ -12,9 +12,12 @@ function partialRoutes(app) {
 
 export default function (app) {
     app.route("/").get((req, res, next) => {
+        if (req.isAuthenticated()) {
+            return res.render("index", { login: true })
+        }
         res.render("index")
     })
-    
+
     partialRoutes(app)
 
     app.use((req, res, next) => {
