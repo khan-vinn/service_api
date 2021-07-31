@@ -3,7 +3,7 @@ import bcrypt from "bcrypt"
 const ObjectID = require("mongodb").ObjectID;
 const LocalStrategy = require("passport-local")
 
-export default function(UserModel) {
+export default function (UserModel) {
     passport.serializeUser((user, done) => {
         done(null, user._id)
     })
@@ -21,4 +21,11 @@ export default function(UserModel) {
             return done(null, user)
         })
     }))
+}
+
+export function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.redirect("/")
 }

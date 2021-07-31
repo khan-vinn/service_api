@@ -9,6 +9,7 @@ import timeout from "connect-timeout";
 import session from "express-session"
 import passport from "passport";
 import helmet from "helmet";
+import turbolinks from "turbolinks-express"
 
 export default function (app) {
     app.set("view engine", "pug")
@@ -24,7 +25,7 @@ export default function (app) {
         }
     }))
     app.use(bodyParser.json())
-    app.use("/",express.static("public"))
+    app.use("/", express.static("public"))
     app.use(favicon("./public/favicon.ico"))
     app.use(morgan("common"));
     // app.use(cors());
@@ -39,4 +40,6 @@ export default function (app) {
     }))
     app.use(passport.initialize());
     app.use(passport.session())
+    app.use(turbolinks.redirect)
+    app.use(turbolinks.location)
 }
