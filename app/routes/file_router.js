@@ -1,4 +1,4 @@
-import FileModel from '../../models/file_model.js'
+import FileModel from '../models/file_model.js'
 import multer from "multer";
 const upload = multer({ dest: "uploads/" });
 

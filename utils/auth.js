@@ -1,7 +1,7 @@
 import passport from "passport"
 import bcrypt from "bcrypt"
-const ObjectID = require("mongodb").ObjectID;
-const LocalStrategy = require("passport-local")
+import { ObjectId as ObjectID } from "mongodb"
+import LocalStrategy from "passport-local"
 
 export default function (UserModel) {
     passport.serializeUser((user, done) => {

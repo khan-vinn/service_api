@@ -1,4 +1,4 @@
-import LinkModel from '../../models/link_model.js'
+import LinkModel from '../models/link_model.js'
 
 export default function (app, myDataBase) {
     app.route("/l")

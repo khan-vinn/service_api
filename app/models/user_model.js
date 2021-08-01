@@ -5,13 +5,13 @@ const { Schema } = mongoose
 const NameSchema = Schema({
     first: {
         type: Schema.Types.String,
-        required: true,
+        // required: true,
         minLength: 2,
         maxLength: 18
     },
     last: {
         type: Schema.Types.String,
-        required: true,
+        // required: true,
         minLength: 2,
         maxLength: 18
     }
@@ -30,7 +30,8 @@ const UserSchema = Schema({
                 return (/^[A-Za-z]+ [A-Za-z]+$/).test(name) && !(/[0-9]+/g.test(name))
             },
             message: invalidValue => `${invalidValue} is not valid Full Name`
-        }
+        },
+        required: false
     },
     username: {
         type: Schema.Types.String,
@@ -39,6 +40,10 @@ const UserSchema = Schema({
         maxLength: 15,
         unique: true
     },
+    email: {
+        type: Schema.Types.String
+    }
+    ,
     password: {
         type: Schema.Types.String,
         required: true

@@ -1,7 +1,7 @@
-import authRouter from "./auth/auth_router.js"
-import fileRouter from './file/file_router.js'
-import linkRouter from './link/link_router.js'
-import profile from "./profile/profile_router.js"
+import authRouter from "./auth_router.js"
+import fileRouter from './file_router.js'
+import linkRouter from './link_router.js'
+import profile from "./profile_router.js"
 
 function partialRoutes(app) {
     authRouter(app)
